@@ -1,2 +1,67 @@
-*.Rhistory
+# ----------------------------
+# OS / Editor / Misc Artifacts
+# ----------------------------
 .DS_Store
+*.Rhistory
+*.swp
+*.swo
+Thumbs.db
+
+# ----------------------------
+# Python
+# ----------------------------
+*.pyc
+*.pyo
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ----------------------------
+# Virtualenv
+# ----------------------------
+bin/
+Scripts/
+Lib/
+pyvenv.cfg
+
+# ----------------------------
+# Jupyter
+# ----------------------------
+.ipynb_checkpoints/
+
+# ----------------------------
+# Data files (we DO NOT push raw or processed data)
+# ----------------------------
+data/raw/**
+data/processed/**
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# If you store results / reports / exports:
+exports/**
+reports/**
+!exports/.gitkeep
+!reports/.gitkeep
+
+# ----------------------------
+# Spark / Hadoop / Logs
+# ----------------------------
+logs/
+derby.log
+metastore_db/
+spark-warehouse/
+
+# ----------------------------
+# Docker / Build Artifacts
+# ----------------------------
+*.log
+*.tmp
+*.out
+
+# Prevent large Parquet or CSV accidentally being tracked
+*.parquet
+*.csv
+*.tsv
+
