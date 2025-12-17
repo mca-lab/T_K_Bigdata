@@ -47,7 +47,7 @@ def convert_to_parquet(csv_path: Path):
 
 
 if __name__ == "__main__":
-    print("🏁 Starting Module 1: Data Ingestion\n")
+    print("Starting Module 1: Data Ingestion\n")
 
     for name, url in datasets.items():
         try:

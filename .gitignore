@@ -1,67 +1,71 @@
-# ----------------------------
+# ============================
 # OS / Editor / Misc Artifacts
-# ----------------------------
+# ============================
 .DS_Store
-*.Rhistory
+Thumbs.db
 *.swp
 *.swo
-Thumbs.db
+*.tmp
+*.bak
 
-# ----------------------------
+# ============================
 # Python
-# ----------------------------
+# ============================
+__pycache__/
 *.pyc
 *.pyo
-__pycache__/
-.ipynb_checkpoints/
+*.pyd
+*.pdb
+
+# ============================
+# Virtual Environments
+# ============================
 .venv/
 venv/
 env/
-
-# ----------------------------
-# Virtualenv
-# ----------------------------
 bin/
 Scripts/
 Lib/
 pyvenv.cfg
 
-# ----------------------------
-# Jupyter
-# ----------------------------
+# ============================
+# Jupyter / IDE
+# ============================
 .ipynb_checkpoints/
+.vscode/
+.idea/
 
-# ----------------------------
-# Data files (we DO NOT push raw or processed data)
-# ----------------------------
+# ============================
+# Data files (DO NOT COMMIT DATA)
+# ============================
 data/raw/**
 data/processed/**
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# If you store results / reports / exports:
+# Optional outputs
 exports/**
 reports/**
 !exports/.gitkeep
 !reports/.gitkeep
 
-# ----------------------------
-# Spark / Hadoop / Logs
-# ----------------------------
+# ============================
+# Spark / Hadoop
+# ============================
 logs/
 derby.log
 metastore_db/
 spark-warehouse/
 
-# ----------------------------
-# Docker / Build Artifacts
-# ----------------------------
-*.log
-*.tmp
-*.out
-
-# Prevent large Parquet or CSV accidentally being tracked
+# ============================
+# Large data formats (safety)
+# ============================
 *.parquet
 *.csv
 *.tsv
 
+# ============================
+# Docker / Build Artifacts
+# ============================
+*.log
+*.out
