@@ -1,71 +1,70 @@
-# ============================
+# ==============================
 # OS / Editor / Misc Artifacts
-# ============================
+# ==============================
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
-*.tmp
-*.bak
+desktop.ini
 
-# ============================
+# VS Code
+.vscode/
+*.code-workspace
+
+# ==============================
 # Python
-# ============================
+# ==============================
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-*.pdb
 
-# ============================
-# Virtual Environments
-# ============================
+# Virtual environments
 .venv/
 venv/
 env/
+pyvenv.cfg
 bin/
 Scripts/
 Lib/
-pyvenv.cfg
 
-# ============================
-# Jupyter / IDE
-# ============================
+# ==============================
+# Jupyter
+# ==============================
 .ipynb_checkpoints/
-.vscode/
-.idea/
+*.nbconvert.ipynb
 
-# ============================
-# Data files (DO NOT COMMIT DATA)
-# ============================
+# ==============================
+# Data files (DO NOT TRACK DATA)
+# ==============================
 data/raw/**
 data/processed/**
+data/combined/**
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/combined/.gitkeep
 
-# Optional outputs
-exports/**
-reports/**
-!exports/.gitkeep
-!reports/.gitkeep
-
-# ============================
+# ==============================
 # Spark / Hadoop
-# ============================
-logs/
-derby.log
-metastore_db/
+# ==============================
 spark-warehouse/
+metastore_db/
+derby.log
+logs/
 
-# ============================
-# Large data formats (safety)
-# ============================
-*.parquet
-*.csv
-*.tsv
-
-# ============================
-# Docker / Build Artifacts
-# ============================
+# ==============================
+# Build / Runtime Artifacts
+# ==============================
 *.log
+*.tmp
 *.out
+
+# ==============================
+# Docker
+# ==============================
+*.pid
+
+# ==============================
+# Cache / Misc
+# ==============================
+.cache/
+.pytest_cache/
+.mypy_cache/
