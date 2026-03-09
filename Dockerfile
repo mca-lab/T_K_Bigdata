@@ -1,28 +1,48 @@
 FROM python:3.10-slim
 
+# Prevent python buffering issues
+ENV PYTHONUNBUFFERED=1
+
 # Set working directory
 WORKDIR /app
 
-# Install Java for PySpark
+
+# Install Java (required for PySpark)
 RUN apt-get update && apt-get install -y \
-    openjdk-17-jdk \
+    default-jdk \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+
 # Set Java environment variables
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/default-java
 ENV PATH=$JAVA_HOME/bin:$PATH
 
-# Copy and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+ENV PYSPARK_PYTHON=python3
 
-# Copy source code and data
+
+# Copy requirements first (better Docker caching)
+COPY requirements.txt .
+
+
+# Upgrade pip and install dependencies
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+
+# Copy project files
 COPY src/ src/
+COPY notebooks/ notebooks/
 COPY data/ data/
 
-# Ensure raw data directory exists
-RUN mkdir -p data/raw
 
-# Default command (can be overridden)
+# Ensure required directories exist
+RUN mkdir -p data/raw data/processed
+
+
+# Expose Jupyter port
+EXPOSE 8888
+
+
+# Default command (temporary)
 CMD ["bash"]

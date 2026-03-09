@@ -6,3 +6,5 @@ pyspark>=3.4
 
 matplotlib>=3.6
 seaborn>=0.12
+
+notebook
