@@ -43,6 +43,13 @@ RUN mkdir -p data/raw data/processed
 # Expose Jupyter port
 EXPOSE 8888
 
+COPY start.sh/ start.sh/
+RUN chmod +x /start.sh
+
+# Introduce entrypoint 
+ENTRYPOINT ["/start.sh"]
+
+
 
 # Default command (temporary)
 CMD ["bash"]
